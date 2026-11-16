@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HEAD OFFICE</title>
+
+    <style>
+        body {
+            background-color: #0c0b4b; 
+            color: #f2f3f5;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center; 
+            align-items: center;     
+            flex-direction: column;           
+        }
+
+        #head {
+            background: #0c0b4b; 
+            padding: 3rem 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+            animation: fadeIn 1s ease-out;
+        }
+
+        h1 {
+            color: #ffffff;
+            font-size: 2.25rem;
+            letter-spacing: 2px;
+            margin-top: 0;
+            margin-bottom: 2rem;
+            font-weight: 700;
+        }
+
+        .subtitle {
+            color: #b5bac1;
+            font-size: 0.95rem;
+            margin-bottom: 1.8rem;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 12px;
+            margin-bottom: 1.8rem;
+        }
+
+        .stat-box {
+            background-color: #2b2d31;
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid rgba(255 );
+        }
+
+        .stat-box span {
+            display: block;
+            font-size: 0.75rem;
+            color: #949ba4;
+            letter-spacing: 1px;
+            margin-bottom: 6px;
+        }
+
+        .stat-box strong {
+            font-size: 1.4rem;
+            color: #ffffff;
+        }
+
+        .btn-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 12px;
+            margin-bottom: 2rem;
+        }
+
+        a.actiom-btn {
+            display: block;
+            text-decoration: none;
+            color: #ffffff;
+            background-color: #4a5058;
+            padding: 1rem;
+            font-size: 1rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            border-radius: 8px;
+            border: 1px solid rgb(255, 255, 255,0.05);
+            transition: all 0.2s ease-in-out;
+        }
+
+        a.action-btn[href="/students"] {
+            background-color: #218a4e;
+            border-color: #417b59;
+        }
+
+        a.action-btn[href="/form"] {
+            background-color: 4d6bf2;
+            border-color: #6e7bf5;
+        }
+
+        a.action-btn:hover {
+            transform: translate(-2px);
+            filter: brightness(1.15);
+        }
+
+        a.action-btn:active {
+            transform: translate(0);
+        }
+
+        .section-title {
+            text-align: left;
+            font-size: 1rem;
+            letter-spacing: 1px;
+            color: #b5bac1;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: #2b2d31;
+            border-radius: 8px;
+            overflow: hidden;
+            font-size: 0.9rem;
+            text-align: left;
+            margin-bottom: 1.5rem;
+        }
+
+        th, td {
+            padding: 12px 14px;
+            border-bottom: 1px solid rgb(255, 255, 255,0.05);
+        }
+
+        th {
+            background-color: #1e1f22;
+            color: #949ba4;
+            font-size: 0.8rem;
+            letter-spacing: 0.5px;
+        }
+
+        .badge-ok {
+            background: rgba(33, 138, 78, 0.25);
+            color: #4ade80;
+            padding: 3px 8px;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        @keyframes fadeIn {
+            from {opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translate(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="head">
+        <h1>HEAD OFFICE</h1>
+        <p class="subtitle">Institutional Overview, Lectures & Student Admistration</p>
+
+        <div class="stats-grid">
+            <div class="stat-box">
+                <span>Total Students</span>
+                <strong>1,650</strong>
+            </div>
+            <div class="stat-box">
+                <span>Lectures</span>
+                <strong>60</strong>
+            </div>
+            <div class="stat-box">
+                <span>Departments</span>
+                <strong>4</strong>
+            </div>
+            <div class="stat-box">
+                <span>Fees Collected</span>
+                <strong>GHS 84,500</strong>
+            </div> 
+        </div>
+
+        <div class="btn-grid">
+            <a href="/students" class="actiom-btn">View Student</a>
+            <a href="/form" class="actiom-btn">Register Student</a>
+        </div>
+
+        <div class="section-title">School Departmental Overview</div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Department</th>
+                    <th>Head of Dept</th>
+                    <th>Lectures</th>
+                    <th>Students</th>
+                    <th>status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Computer Science</td>
+                    <td>Dr. Kofi Boateng</td>
+                    <td>14</td>
+                    <td>420</td>
+                    <td><span class="badge-ok">active</span></td>
+                </tr>
+                <tr>
+                    <td>Bussiness Admistration</td>
+                    <td>Prof. Ama Serwaa</td>
+                    <td>18</td>
+                    <td><span class="badge-ok">Active</span></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <a href="/head-office" class="actiom-btn" style="max-width: 200px; margin: 0 auto;">LOGOUT / Home</a>
+    </div>
+</body>
+</html>

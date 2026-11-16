@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard</title>
+    <style>
+        body {
+            background-color: #0c0b4b; 
+            color: #f2f3f5;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #dashboard_container {
+            background: #0c0b4b;
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+            max-width: 480px;
+            width: 90%;
+            border-top: 4px solid #5865f2; 
+            animation: fadeIn 0.6s ease-out;
+        }
+        .header-area {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        h2 {
+            color: #ffffff;
+            font-size: 1.75rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            margin: 0 0 0.5rem 0;
+        }
+        .welcome-msg {
+            color: #b5bac1;
+            font-size: 0.95rem;
+            margin: 0;
+        }
+        .data-group {
+            background-color: #0c0b4b;
+            border: 1px solid #3f4147;
+            border-radius: 6px;
+            padding: 0.85rem 1rem;
+            margin-bottom: 0.75rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.95rem;
+        }
+        .data-label {
+            color: #b5bac1;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+        .data-value {
+            color: #ffffff;
+            font-weight: 500;
+        }
+        .action-buttons {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 0.75rem;
+            margin-top: 2rem;
+        }
+        .logout-button {
+            display: block;
+            text-align: center;
+            text-decoration: none;
+            color: #ffffff;
+            background-color: #da373c; 
+            padding: 0.85rem;
+            font-size: 1rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            border-radius: 6px;
+            transition: all 0.2s ease-in-out;
+        }
+        .logout-button:hover {
+            background-color: #a92b2f;
+            transform: translateY(-1px);
+        }
+        .logout-button:active {
+            transform: translateY(0);
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <div id="dashboard_container">
+        <div class="header-area">
+            <h2>STUDENT DASHBOARD</h2>
+            <p class="welcome-msg">Welcome back, {{ student.first_name }}</p>
+        </div>
+
+        <div class="data-group">
+            <span class="data-label">Student ID</span>
+            <span class="data-value">#{{ student.id }}</span>
+        </div>
+        <div class="data-group">
+            <span class="data-label">First Name</span>
+            <span class="data-value">{{ student.first_name }}</span>
+        </div>
+        <div class="data-group">
+            <span class="data-label">Last Name</span>
+            <span class="data-value">{{ student.last_name }}</span>
+        </div>
+        <div class="data-group">
+            <span class="data-label">username</span>
+            <span class="data-value">{{ student.username }}</span>
+        </div>
+        <div class="data-group">
+            <span class="data-label">Date of Birth</span>
+            <span class="data-value">{{ student.date_of_birth }}</span>
+        </div>
+        <div class="data-group">
+            <span class="data-label">Age</span>
+            <span class="data-value">{{ student.age }} years old</span>
+        </div>
+        <div class="action-buttons">
+            <a class="logout-button" href="/login">LOGOUT</a>
+        </div>
+    </div>
+</body>
+</html>

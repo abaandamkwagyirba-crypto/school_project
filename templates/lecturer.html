@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LECTURER'S PAGE</title>
+
+    <style>
+        /* Base Page Setup */
+        body {
+            background-color: #0c0b4b; 
+            color: #f2f3f5;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center; 
+            align-items: center;     
+            flex-direction: column;           
+        }
+
+       
+        #faculty-box {
+            background: #0c0b4b; 
+            padding: 3rem 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+            border-top: 4px solid #3b82f6; /* Faculty academic blue top border */
+            animation: fadeIn 1s ease-out;
+        }
+        
+        /* Heading Styling */
+        h1 {
+            color: #ffffff;
+            font-size: 2.25rem;
+            letter-spacing: 1px;
+            margin-top: 0;
+            margin-bottom: 2rem;
+            font-weight: 700;
+        }
+
+        /* Modern Button Styling for Links */
+        a {
+            display: block;
+            text-decoration: none;
+            color: #ffffff;
+            background-color: #1d4ed8; /* Deep sapphire blue button base */
+            padding: 1rem;
+            margin: 1rem 0 0 0; /* Cleans up spacing without <br> tags */
+            font-size: 1.1rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            border-radius: 8px;
+            border: 1px solid #2563eb;
+            transition: all 0.2s ease-in-out;
+        }
+
+        a:hover {
+            transform: translateY(-2px);
+            filter: brightness(1.15);
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+        }
+
+        a:active {
+            transform: translateY(0);
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(15px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="faculty-box">
+        <h1>LECTURER'S PAGE</h1>
+        <a href="/students">VIEW STUDENT</a>
+    </div>
+
+</body>
+</html>

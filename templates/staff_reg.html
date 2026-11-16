@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STAFF FORM</title>
+
+    <style>
+        body {
+            background-color: #0c0b4b; 
+            color: #f2f3f5;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center; 
+            align-items: center;     
+        }
+
+        #student_form_div {
+            background: #0c0b4b;
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+            max-width: 440px;
+            width: 90%;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        h1 {
+            color: #ffffff;
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-top: 0;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        p {
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: #b5bac1;
+            margin-bottom: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        label {
+            display: flex;
+            align-items: center;
+            background: #35373c;
+            padding: 0.75rem 1rem;
+            margin-bottom: 0.5rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: background 0.2s;
+        }
+
+        label:hover {
+            background: #404249;
+        }
+
+        input[type="radio"] {
+            margin-right: 10px;
+            accent-color: #5865f2;
+        }
+
+        .input-group {
+            margin-top: 1.25rem;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .input-group label {
+            background: transparent;
+            padding: 0;
+            margin-bottom: 0.5rem;
+            color: #b5bac1;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        .student_input {
+            background-color: #0c0b4b;
+            border: 1px solid #3f4147;
+            color: #ffffff;
+            padding: 0.85rem;
+            font-size: 1rem;
+            border-radius: 6px;
+            outline: none;
+            transition: border-color 0.2s;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .student_input:focus {
+            border-color: #5865f2;
+        }
+
+        .form-actions {
+            margin-top: 1.75rem;
+            display: flex;
+            gap: 0.75rem;
+        }
+
+        button {
+            flex: 1;
+            padding: 0.85rem;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 6px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s ease-in-out;
+        }
+
+        button[type="submit"] {
+            background-color: #5865f2;
+            color: #ffffff;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #4752c4;
+            box-shadow: 0 4px 12px rgba(88, 101, 242, 0.3);
+        }
+
+        /* Secondary Home Button */
+        .btn-home {
+            background-color: #4e5058;
+            color: #ffffff;
+        }
+
+        .btn-home:hover {
+            background-color: #6d6f78;
+        }
+
+        .register-link {
+            display: block;
+            text-align: center;
+            margin-top: 1.5rem;
+            color: #949ba4;
+            font-size: 0.875rem;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .register-link:hover {
+            color: #5865f2;
+            text-decoration: underline;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(15px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="student_form_div">
+        <h1>STAFF FORM</h1>
+
+        <form action="/login_submit" method="POST">
+            <p>User Option:</p>
+
+            <label>
+                <input type="radio" name="role" value="HEAD TEACHER/PRINCIPAL" required>
+                HEAD TEACHER/PRINCIPAL
+            </label>
+
+            <label>
+                <input type="radio" name="role" value="LECTURER" required>
+                LECTURER
+            </label>
+
+            <label>
+                <input type="radio" name="role" value="ACCOUNTANT" required>
+                ACCOUNTANT
+            </label>
+
+            <div class="input-group">
+                <label>username</label>
+                <input type="text" name="username" required class="student_input" autocomplete="username">
+            </div>
+
+            <div class="input-group">
+                <label>password</label>
+                <input type="password" name="password" required class="student_input" autocomplete="current-password">
+            </div>
+
+            <div class="form-actions">
+                <button type="submit">Submit</button>
+                <button type="button" class="btn-home" onclick="window.location.href='/'">Home</button>
+            </div>
+        </form>
+
+        <a href="/register_account" class="register-link">Don't have an account? Click to Register</a>
+    </div>
+    
+</body>
+</html>

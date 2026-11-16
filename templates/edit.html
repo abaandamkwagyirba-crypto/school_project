@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STUDENT UPDATE</title>
+
+    <style>
+        body {
+            background-color: #0c0b4b; 
+            color: #f2f3f5;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center; 
+            align-items: center;     
+        }
+
+
+        #student_update_div {
+            background: #0c0b4b; 
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+            max-width: 460px;
+            width: 90%;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        h1 {
+            color: #ffffff;
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-top: 0;
+            margin-bottom: 1.75rem;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 1.25rem;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            margin-bottom: 0.5rem;
+            color: #b5bac1;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        .student_form {
+            background-color: #8ad2ee;
+            border: 1px solid #3f4147;
+            color: #ffffff;
+            padding: 0.85rem;
+            font-size: 1rem;
+            border-radius: 6px;
+            outline: none;
+            width: 100%;
+            box-sizing: border-box;
+            transition: border-color 0.2s;
+        }
+
+        .student_form:focus {
+            border-color: #5865f2;
+        }
+
+        input[type="date"]::-webkit-calendar-picker-indicator {
+            filter: invert(1); 
+            cursor: pointer;
+        }
+
+        input[name="age"] {
+            color: #949ba4;
+            background-color: #8ad2ee;
+            cursor: not-allowed;
+        }
+
+        .form-actions {
+            margin-top: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        button {
+            width: 100%;
+            padding: 0.85rem;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 6px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s ease-in-out;
+        }
+
+        button[type="submit"] {
+            background-color: #5865f2; 
+            color: #ffffff;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #4752c4;
+            box-shadow: 0 4px 12px rgba(88, 101, 242, 0.3);
+        }
+
+        .btn-back {
+            background-color: #4e5058;
+            color: #ffffff;
+        }
+
+        .btn-back:hover {
+            background-color: #6d6f78;
+        }
+
+        /* Smooth Entry Animation */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(15px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="student_update_div">
+        <h1>STUDENT UPDATE</h1>
+
+        <form action="/update/{{student[0]}}" method="POST">
+
+            <div class="form-group">
+                <label>First Name</label>
+                <input type="text" name="first_name" value="{{student[1]}}" required class="student_form">
+            </div>
+
+            <div class="form-group">
+                <label>Last Name</label>
+                <input type="text" name="last_name" value="{{student[2]}}" required class="student_form">
+            </div>
+
+            <div class="form-group">
+                <label>Date of Birth</label>
+                <input type="date" name="date_of_birth" value="{{student[3]}}" required class="student_form">
+            </div>
+
+            <div class="form-group">
+                <label>Age</label>
+                <input type="number" name="age" value="{{student[4]}}" required class="student_form" readonly>
+            </div>
+
+            <div class="form-group">
+                <label>subject</label>
+                <input type="text" name="subject" value="{{student[5] if student[5] is not none else '' }}" class="student_form">
+            </div>
+
+            <div class="form-group">
+                <label>marks</label>
+                <input type="number" name="marks" value="{{student[6] if student[6] is not none else '' }}" class="student_form">
+            </div>
+
+            <div class="form-group">
+                <label>assigned_classroom</label>
+                <input type="text" name="assigned_classroom" value="{{student[7] if student[7] is not none else '' }}" class="student_form">
+            </div>
+
+            <div class="form-actions">
+                <button type="submit">SAVE CHANGES</button>
+                <button type="button" class="btn-back" onclick="window.location.href='/students'">BACK TO STUDENTS</button>
+            </div>
+        </form>
+    </div>
+
+</body>
+</html>

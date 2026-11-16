@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STUDENT FORM</title>
+
+    <style>
+        body {
+            background-color: #0c0b4b; 
+            color: #f2f3f5;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center; 
+            align-items: center;     
+        }
+
+        #student_form_div {
+            background: #0c0b4b; 
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+            max-width: 460px;
+            width: 90%;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        
+        h1 {
+            color: #ffffff;
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-top: 0;
+            margin-bottom: 1.75rem;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 1.25rem;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            margin-bottom: 0.5rem;
+            color: #b5bac1;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        .student_input {
+            background-color: #0c0b4b;
+            border: 1px solid #3f4147;
+            color: #ffffff;
+            padding: 0.85rem;
+            font-size: 1rem;
+            border-radius: 6px;
+            outline: none;
+            width: 100%;
+            box-sizing: border-box;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+
+        .student_input:focus {
+            border-color: #5865f2; 
+        }
+
+        input[type="date"]::-webkit-calendar-picker-indicator {
+            filter: invert(1); 
+            cursor: pointer;
+        }
+
+        .form-actions {
+            margin-top: 1.75rem;
+        }
+
+        button[type="submit"] {
+            width: 100%;
+            padding: 0.85rem;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 6px;
+            border: none;
+            cursor: pointer;
+            background-color: #0c0b4b; 
+            color: #ffffff;
+            transition: all 0.2s ease-in-out;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #0c0b4b;
+            box-shadow: 0 4px 12px rgba(36, 128, 70, 0.3);
+        }
+
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 1.5rem;
+            color: #949ba4;
+            font-size: 0.875rem;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .back-link:hover {
+            color: #5865f2;
+            text-decoration: underline;
+        }
+
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(15px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="student_form_div">
+        <h1>STUDENT FORM</h1>
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+            <div style="background-color: #da373c; color: #ffffff; padding: 0.85rem; margin-bottom: 1.25rem; border-radius: 6px; font-size: 0.95rem; font-weight: 500; text-align: center; box-shadow: 0 4px 12px rgba(218, 55, 60, 0.25);">
+                {{ message }}
+            </div>
+            {% endfor %}
+        {% endif %}
+        {% endwith %}
+
+
+
+        <form action="/submit" method="POST">
+
+            <div class="form-group">
+                <label>First Name</label>
+                <input type="text" name="first_name" required class="student_input">
+            </div>
+
+            <div class="form-group">
+                <label>Last Name</label>
+                <input type="text" name="last_name" required class="student_input">
+            </div>
+
+            <div class="form-group">
+                <label> Username</label>
+                <input type="text" name="username" required class="student_input">
+            </div>
+
+            <div class="form-group">
+                <label>Date of Birth</label>
+                <input type="date" name="date_of_birth" required class="student_input">
+            </div>
+
+            <div class="form-group">
+                <label>Password</label>
+                <input type="password" name="password" required class="student_input" autocomplete="new-password">
+            </div>
+
+            <div class="form-actions">
+                <button type="submit">Submit</button>
+            </div>
+        </form>
+
+        <a href="/login" class="back-link">Back To Student Login</a>
+    </div>
+    
+</body>
+</html>

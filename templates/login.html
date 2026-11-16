@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STUDENT FORM</title>
+
+    <style>
+        body {
+            background-color: #0c0b4b; 
+            color: #f2f3f5;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center; 
+            align-items: center;     
+        }
+
+        #student_form_div {
+            background: #0c0b4b; 
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+            max-width: 440px;
+            width: 90%;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        h1 {
+            color: #ffffff;
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-top: 0;
+            margin-bottom: 1.75rem;
+            text-align: center;
+        }
+
+        .input-group {
+            margin-bottom: 1.25rem;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .input-group label {
+            margin-bottom: 0.5rem;
+            color: #b5bac1;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        .student_input {
+            background-color: #0c0b4b;
+            border: 1px solid #3f4147;
+            color: #ffffff;
+            padding: 0.85rem;
+            font-size: 1rem;
+            border-radius: 6px;
+            outline: none;
+            width: 100%;
+            box-sizing: border-box;
+            transition: border-color 0.2s;
+        }
+
+        .student_input:focus {
+            border-color: #5865f2; 
+        }
+
+        
+        #button-submit {
+            width: 100%;
+            padding: 0.85rem;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 6px;
+            border: none;
+            cursor: pointer;
+            background-color: #5865f2;
+            color: #ffffff;
+            transition: all 0.2s ease-in-out;
+            margin-top: 0.5rem;
+            margin-bottom: 1.25rem;
+        }
+
+        #button-submit:hover {
+            background-color: #4752c4;
+            box-shadow: 0 4px 12px rgba(88, 101, 242, 0.3);
+        }
+
+        .form-footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            text-align: center;
+            border-top: 1px solid #3f4147;
+            padding-top: 1.25rem;
+        }
+
+        .footer-link {
+            color: #949ba4;
+            font-size: 0.875rem;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .footer-link:hover {
+            color: #5865f2;
+            text-decoration: underline;
+        }
+
+        .btn-staff {
+            display: block;
+            background-color: #4e5058;
+            color: #ffffff;
+            padding: 0.75rem;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .btn-staff:hover {
+            background-color: #6d6f78;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(15px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="student_form_div">
+        <h1>STUDENT FORM</h1>
+
+        <form action="/login" method="POST">
+        <div class="input-group">
+            <label>Username</label>
+            <input type="text" name="username" required class="student_input">
+        </div>
+
+        <div class="input-group">
+            <label>Password</label>
+            <input type="password" name="password" required class="student_input">
+        </div>
+
+            
+            <button type="submit" id="button-submit">Login</button>
+        </form>
+
+        <div class="form-footer-links">
+            <a href="/form" class="footer-link">Don't have an account? Click to Register</a>
+            <a href="/staff_reg" class="btn-staff">Staff Page</a>
+        </div>
+    </div>
+    
+</body>
+</html>

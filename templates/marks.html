@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STUDENT ACADEMIC DASHBOARD</title>
+
+    <style>
+        body {
+            background-color: #0c0b4b; 
+            color: #f2f3f5;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center; 
+            padding: 2rem 1rem;
+            box-sizing: border-box;
+        }
+
+        #student_identification_div {
+            background: #0c0b4b; 
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+            max-width: 900px;
+            width: 100%;
+            animation: fadeIn 0.6s ease-out;
+        }
+
+        h1 {
+            color: #ffffff;
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-top: 0;
+            margin-bottom: 1.5rem;
+        }
+
+        .flash-message {
+            background-color: #da373c;
+            color: #ffffff;
+            padding: 0.85rem 1rem;
+            border-radius: 6px;
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+            font-size: 0.95rem;
+            border-left: 5px solid #ff7377;
+        }
+
+        .dashboard-controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .search-form {
+            display: flex;
+            gap: 0.5rem;
+            flex: 1;
+            max-width: 450px;
+        }
+
+
+        .input_search {
+            background-color: #0c0b4b;
+            border: 1px solid #3f4147;
+            color: #ffffff;
+            padding: 0.75rem 1rem;
+            font-size: 0.95rem;
+            border-radius: 6px;
+            outline: none;
+            flex: 1;
+            transition: border-color 0.2s;
+        }
+
+        .input_search:focus {
+            border-color: #5865f2; 
+        }
+
+        button {
+            padding: 0.75rem 1.25rem;
+            font-size: 0.95rem;
+            font-weight: 600;
+            border-radius: 6px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s ease-in-out;
+        }
+
+        button[type="submit"] {
+            background-color: #5865f2;
+            color: #ffffff;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #4752c4;
+        }
+
+        .btn-home {
+            background-color: #4e5058;
+            color: #ffffff;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-home:hover {
+            background-color: #6d6f78;
+        }
+
+        .table-responsive {
+            overflow-x: auto; 
+            width: 100%;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: #0c0b4b;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-top: 1rem;
+        }
+
+        th, td {
+            padding: 1rem;
+            text-align: left;
+            font-size: 0.95rem;
+        }
+
+        th {
+            background-color: #0c0b4b;
+            color: #b5bac1;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            border-bottom: 2px solid #0c0b4b;
+        }
+
+        td {
+            border-bottom: 1px solid #0c0b4b;
+            color: #f2f3f5;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        tr:hover td {
+            background-color: rgba(255, 255, 255, 0.02);
+        }
+
+        .action-link {
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: opacity 0.2s;
+        }
+
+        .action-link:hover {
+            text-decoration: underline;
+        }
+
+        .link-edit {
+            color: #3b82f6; 
+        }
+
+        .link-delete {
+            color: #f23f43; 
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(15px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="student_identification_div">
+        <h1>WELCOME, {{ student.first_name }} {{ student.last_name}}!!</h1>
+
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="flash-message">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        <div class="dashboard-controls">
+            <div style="color: #a4b1cd;">
+                <strong>Username:</strong> {{ records[0].username if records }} <br>
+                <strong>Age:</strong> {{records[0].age if records }}
+            </div>
+            <a href="/" style="text-decoration: none;">
+                <button type="button" class="btn-home">Home</button>
+            </a>
+        </div>
+
+
+        <div class="table-responsive">
+            <table>
+                <thead>
+                    <tr>
+                        <th>subject</th>
+                        <th>marks</th>
+                        <th>assigned classroom</th>
+                        <th style="text-align: center; width: 80px;">Edit</th>
+                        <th style="text-align: center; width: 80px;">Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for row in records %}
+                    <tr>
+                        <td>{{ row.subject }}</td>
+                        <td>{{ row.marks }}</td>
+                        <td>{{ row.assigned_classroom }}</td>
+                        
+                        <td style="text-align: center; width: 80px;">
+                            <a href="/edit/{{ row.id }}" class="action-link link-edit">Edit</a>
+                        </td>
+                        <td style="text-align: center; width: 80px;">
+                            <a href="/delete/{{ row.id }}" 
+                               class="action-link link-delete"
+                               onclick="return confirm('Are you sure you want to delete this student record?');">
+                               Delete
+                            </a>
+                        </td>
+                        <td style="text-align: center; width: 80px;">
+                            <a href="/academics/{{ row.id }}" class="action-link link-academics">Academics</a>
+                        </td>
+                    </tr>
+                    {% else %}
+                    <tr>
+                        <td colspan="5" style="text-align: center; color: #a4b1cd; padding: 2rem;">
+                            No academic records found in database directory.
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</body>
+</html>
